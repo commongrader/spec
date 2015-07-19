@@ -1,0 +1,37 @@
+digraph Diagram {
+    // -- COMMON -- //
+    rankdir = LR;
+    node [fontname=Helvetica shape=record];
+    edge [fontname=Helvetica];
+    graph [dpi=50];
+
+    subgraph external {
+        node[color=blue fontcolor=blue];
+        edge[color=blue fontcolor=blue];
+    }
+    subgraph internal {
+        edge[color=darkgreen fontcolor=darkgreen];
+    }
+    // -- COMMON -- //
+    
+    subgraph external {
+        staff [label="" color=transparent];
+        subm_db [label="Gitolite\n(subm db)"];
+    }
+    subgraph internal {
+        custom1 [label="{ Gitolite\nadapter | <actual> glookup I\n(dispatcher) }" style=bold];
+        assns [label="<hw1> hw1 spec | <hw2> hw2 spec | <hw3> hw3 spec"];
+        custom2 [label="glookup II\n(autograder)" style=bold];
+        grade_db [label="glookup III\n(grade db)" style=bold];
+    }
+    subgraph external {
+        staff -> subm_db [color=transparent];
+        subm_db -> custom1 [label="subm"];
+    }
+    subgraph internal {
+        custom1 -> custom2 [label="subm"];
+        custom1 -> custom2 [label="assn"];
+        assns -> custom1:actual [label="assns" weight=0];
+        custom2 -> grade_db [label="result"];
+    }
+}

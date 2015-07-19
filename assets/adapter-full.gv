@@ -1,0 +1,26 @@
+digraph Diagram {
+    // -- COMMON -- //
+    rankdir = LR;
+    node [fontname=Helvetica shape=record];
+    edge [fontname=Helvetica];
+    graph [dpi=50];
+
+    subgraph external {
+        node[color=blue fontcolor=blue];
+        edge[color=blue fontcolor=blue];
+    }
+    subgraph internal {
+        edge[color=darkgreen fontcolor=darkgreen];
+    }
+    // -- COMMON -- //
+
+    subgraph internal {
+        adapter1 [label="adapter"];
+        adapter1_sink [label="CommonGrader-compatible\ncomponent", style=bold];
+        adapter1 -> adapter1_sink [dir=both];
+    }
+    subgraph external {
+        adapter1_source [label="non-Commongrader\nexternal service"];
+        adapter1_source -> adapter1  [dir=both];
+    }
+}

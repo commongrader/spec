@@ -1,0 +1,14 @@
+    // -- COMMON -- //
+    rankdir = LR;
+    node [fontname=Helvetica shape=record];
+    edge [fontname=Helvetica];
+    graph [dpi=50];
+
+    subgraph external {
+        node[color=blue fontcolor=blue];
+        edge[color=blue fontcolor=blue];
+    }
+    subgraph internal {
+        edge[color=darkgreen fontcolor=darkgreen];
+    }
+    // -- COMMON -- //

@@ -1,0 +1,36 @@
+digraph Diagram {
+    // -- COMMON -- //
+    rankdir = LR;
+    node [fontname=Helvetica shape=record];
+    edge [fontname=Helvetica];
+    graph [dpi=50];
+
+    subgraph external {
+        node[color=blue fontcolor=blue];
+        edge[color=blue fontcolor=blue];
+    }
+    subgraph internal {
+        edge[color=darkgreen fontcolor=darkgreen];
+    }
+    // -- COMMON -- //
+    
+    subgraph external {
+        student [label="student"];
+        subm_db [label="XQueue"];
+    }
+    subgraph internal {
+        custom1 [label="{ XQueue\nadapter | rag I }" style=bold];
+        assns [label="<hw1> hw1 ag | <hw2> hw2 ag | <hw3> hw3 ag"];
+        custom2 [label="rag II" style=bold];
+        grade_db [label="edX" style=bold];
+    }
+    subgraph external {
+        student -> subm_db [label="subm"];
+        subm_db -> custom1 [label="subm"];
+    }
+    subgraph internal {
+        custom1 -> assns:hw1 [label="subm"];
+        assns:hw1 -> custom2 [label="result"];
+        custom2 -> grade_db [label="result"];
+    }
+}
