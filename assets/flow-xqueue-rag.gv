@@ -20,7 +20,7 @@ digraph Diagram {
     }
     subgraph internal {
         custom1 [label="{ XQueue\nadapter | rag I }" style=bold];
-        assns [label="<hw1> hw1 ag | <hw2> hw2 ag | <hw3> hw3 ag"];
+        assns [label="<hw1> hw1 ag | <hw2> hw2 ag | <hw3> hw3 ag\n(graders)"];
         custom2 [label="rag II" style=bold];
         grade_db [label="edX" style=bold];
     }
@@ -30,7 +30,7 @@ digraph Diagram {
     }
     subgraph internal {
         custom1 -> assns:hw1 [label="subm"];
-        assns:hw1 -> custom2 [label="result"];
-        custom2 -> grade_db [label="result"];
+        assns:hw1 -> custom2 [label="gsubm"];
+        custom2 -> grade_db [label="gsubm"];
     }
 }

@@ -14,7 +14,7 @@ clean-svg:
 	dot $< -Tpng -Gdpi=72 > $@
 
 clean-png:
-	rm -- *.svg
+	rm -- *.png
 
 %.gv: Makefile.helpers/diagrams.py Makefile.helpers/diagrams.gv
 	python $+ $@

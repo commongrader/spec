@@ -4,12 +4,12 @@
 CommonGrader API
 ================
 
-The CommonGrader API revolves around three classes of objects: graders,
-submissions, and results. They will be lowercased and unstylized unless they are
-implementation-specific.
+The CommonGrader API revolves around a few classes of objects: graders,
+assignments, submissions, and graded submissions. They will be lowercased and
+unstylized unless they are implementation-specific.
 
-Terminology and serialization
------------------------------
+In general
+----------
 
 Each CommonGrader type is defined as a hash-like data structure that consists of
 **fields**. Field name are always strings, and the type of the value is
@@ -166,8 +166,8 @@ Submissions
 | `time​:submitted` | time         | when the submission left the students control                      |
 | `time:graded`    | time         | when the submission finished grading                               |
 
-Graded submission
------------------
+Graded submissions
+------------------
 
 This could be the same object as the submission but it doesn't have to be.
 

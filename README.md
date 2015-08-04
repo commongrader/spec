@@ -15,9 +15,10 @@ efforts that are common to many autograder systems.
 
 CommonGrader is a **spec** that describes:
 
--   A format for 3 common **objects** that autograders pass around.
+-   A format for **objects** that autograders pass around.
 
--   A format for some common **tasks** that autograders do.
+-   A rough specification of some common **tasks** that autograders do and the
+    kind of workflow they operate under.
 
 CommonGrader a collection of **code libraries** to do some CommonGrader things:
 
@@ -67,26 +68,31 @@ In this workflow, a student submits an assignment via GitHub, which sends a
 notification (via webhook) to a custom app called Octobear. Even though Octobear
 all runs on one machine, it's conceptually useful to break it down into parts.
 Here, Octobear is also the autograder and the grade db, and so it grades the
-submission and stores the resulting grade.
+submission and stores the resulting grade. ("gsubm" stands for "graded
+submission.")
 
 The blue parts are the things you don't have control over. CommonGrader can make
 make the rest easier to manage:
 
--   No need to make your own Submission, Assignment, and Result classes. Just
+-   No need to make your own Submission and Assignment classes. Just
     import/require the CommonGrader base library to make these classes –
-    complete with de/serialization and validation – accessible to you instantly.
+    complete with de/serialization, validation, and assignment inheritance –
+    accessible to you instantly.
 
 -   CommonGrader is a format for data exchange. All exchanges that take place
     over green arrows can use the CommonGrader format. There's no need to switch
     to CommonGrader immediately if you already have a working custom protocol!
-    You can do it each time a component needs to be rewritten.
+    You can do it each time a component needs to be rewritten, and
+    CommonGrader-ize one arrow at a time.
 
--   It turns out that the GitHub adapter, Octobear I, Octobear II are generic
-    components that can be used by other autograder projects. These can be
-    open-sourced and subject to peer review and improvement.
+-   In the above diagram, it turns out that the GitHub adapter, Octobear I,
+    Octobear II are generic components that can be used by other autograder
+    projects. These can be open-sourced and subject to peer review and
+    improvement.
 
 -   If you're just starting out, or if you decide to need to change your entire
-    infrastructure, these three modularized components can be used as-is.
+    infrastructure, the above three modularized components would be able to be
+    used as-is.
 
 ### Examples: Berkeley CS on CommonGrader
 
@@ -126,8 +132,8 @@ In shorthand, it is expressed as:
 
 ![](<assets/adapter-short.png>)
 
-Who is CommonGrader?
---------------------
+Who is behind CommonGrader?
+---------------------------
 
 CommonGrader was started as a collaboration among autograder development efforts
 at UC Berkeley. [@szhu](<https://github.com/szhu>) currently maintains this

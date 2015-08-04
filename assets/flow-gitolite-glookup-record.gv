@@ -21,7 +21,7 @@ digraph Diagram {
     subgraph internal {
         custom1 [label="{ Gitolite\nadapter | <actual> glookup I\n(dispatcher) }" style=bold];
         assns [label="<hw1> hw1 spec | <hw2> hw2 spec | <hw3> hw3 spec"];
-        custom2 [label="glookup II\n(autograder)" style=bold];
+        custom2 [label="glookup II\n(grader)" style=bold];
         grade_db [label="glookup III\n(grade db)" style=bold];
     }
     subgraph external {
@@ -32,6 +32,6 @@ digraph Diagram {
         custom1 -> custom2 [label="subm"];
         custom1 -> custom2 [label="assn"];
         assns -> custom1:actual [label="assns" weight=0];
-        custom2 -> grade_db [label="result"];
+        custom2 -> grade_db [label="gsubm"];
     }
 }
